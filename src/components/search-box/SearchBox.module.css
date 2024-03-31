@@ -1,13 +1,12 @@
 .search {
-    margin-bottom: 30px;
-    border: 2px solid black;
-    border-radius: 4px;
-    width: 316px;
-    
+  margin-bottom: 30px;
+  border: 2px solid black;
+  border-radius: 4px;
+  width: 316px;
 }
 
 .search-div {
-    display: flex;
-    flex-direction: column;
-    gap: 4px;
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
 }

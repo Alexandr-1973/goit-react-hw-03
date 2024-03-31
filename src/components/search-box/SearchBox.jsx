@@ -12,9 +12,9 @@ const SearchBox = ({ searchText, handleSearchChange }) => {
         className={css.search}
         type="text"
         value={searchText}
-              onChange={(event) => handleSearchChange(event.target.value)}
+        onChange={(event) => handleSearchChange(event.target.value)}
       />
-    </div> 
+    </div>
   );
 };
 

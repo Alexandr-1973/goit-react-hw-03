@@ -1,11 +1,7 @@
 import { useId } from "react";
 import { Field, Formik, Form } from "formik";
 import { ErrorMessage } from "formik";
-
-
-// import { nanoid } from "nanoid";
 import * as Yup from "yup";
-// import "yup-phone";
 import css from "./ContactForm.module.css";
 
 const ContactForm = ({ addContact }) => {
@@ -20,7 +16,11 @@ const ContactForm = ({ addContact }) => {
     number: Yup.string()
       .min(3, "Too Short!")
       .max(50, "Too Long!")
-          .required("Required").matches(/[0-9]{3}[-][0-9]{2}[-][0-9]{2}$/, "Input format xxx-xx-xx, x - only numbers"),
+      .required("Required")
+      .matches(
+        /[0-9]{3}[-][0-9]{2}[-][0-9]{2}$/,
+        "Input format xxx-xx-xx, x - only numbers"
+      ),
   });
 
   const initialValues = {
@@ -42,14 +42,14 @@ const ContactForm = ({ addContact }) => {
       <Form className={css.form}>
         <div className={css["form-divs"]}>
           <label htmlFor={nameId}>Name</label>
-                  <Field type="text" name="name" id={nameId} />
-                  <ErrorMessage className={css.error} name="name" component="p" />
+          <Field type="text" name="name" id={nameId} />
+          <ErrorMessage className={css.error} name="name" component="p" />
         </div>
 
         <div className={css["form-divs"]}>
           <label htmlFor={phoneId}>Number</label>
-                  <Field type="text" name="number" id={phoneId} />
-                  <ErrorMessage className={css.error} name="number" component="p" />
+          <Field type="text" name="number" id={phoneId} />
+          <ErrorMessage className={css.error} name="number" component="p" />
         </div>
 
         <button type="submit" className={css.btn}>

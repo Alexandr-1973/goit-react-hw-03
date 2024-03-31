@@ -1,24 +1,29 @@
 import { FaPhoneAlt } from "react-icons/fa";
-// import { BsFillPersonFill } from "react-icons/bs";
 import { IoPerson } from "react-icons/io5";
 import css from "./Contact.module.css";
 
-const Contact = ({ contactInfo }) => {
-    const { name, number } = contactInfo;
-    // console.log(props);
+const Contact = ({ contactInfo, onDeleteContact }) => {
+  const { id, name, number } = contactInfo;
   return (
     <div className={css.contact}>
-          <ul className={css["contact-info"]}>
+      <ul className={css["contact-info"]}>
         <li>
-                  <p className={css.item}><IoPerson className={css.icon} />{name}</p>
+          <p className={css.item}>
+            <IoPerson className={css.icon} />
+            {name}
+          </p>
         </li>
         <li>
-                  <p className={css.item}><FaPhoneAlt className={css.icon}/>{number}</p>
+          <p className={css.item}>
+            <FaPhoneAlt className={css.icon} />
+            {number}
+          </p>
         </li>
-        
-          </ul>
-          <button className={css.btn}>Delete</button>
-</div>
+      </ul>
+      <button className={css.btn} onClick={() => onDeleteContact(id)}>
+        Delete
+      </button>
+    </div>
   );
 };
 
